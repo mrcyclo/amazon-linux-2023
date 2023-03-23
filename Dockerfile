@@ -21,6 +21,9 @@ RUN mkdir /etc/supervisord.d
 COPY ./.docker/supervisor/supervisord.conf /etc/supervisord.conf
 COPY ./.docker/supervisor/supervisord.d /etc/supervisord.d
 
+# NodeJS
+RUN dnf install -y nodejs
+
 WORKDIR /var/www/html
 
 CMD ["supervisord", "-n", "-c", "/etc/supervisord.conf"]
